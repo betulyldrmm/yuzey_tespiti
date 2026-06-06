@@ -25,11 +25,11 @@ class DetectionResponse(BaseModel):
     detections: list[dict]
 
 
-class ReportRequest(ProductRequest):
-    detections: list[dict] = Field(default_factory=list)
+class ReportRequest(ProductRequest): #miras aldığı için bazı şeyler var zaten içinde 
+    detections: list[dict] = Field(default_factory=list) # boş liste alsın gelmezse
 
 
-app = FastAPI(title="Mini Yuzey Hatasi Tespit Uygulamasi")
+app = FastAPI(title="Mini Yuzey Hatasi Tespit Uygulamasi") #fast api uygulaması oluşturyouyor 
 
 app.add_middleware(
     CORSMiddleware,
@@ -43,7 +43,7 @@ detection_service = DetectionService()
 state: dict[str, object] = {"status": "idle", "detections": []}
 
 
-@app.get("/api/health")
+@app.get("/api/health")  # backend çalışıyor mu diye kontorl
 def health() -> dict[str, str]:
     return {"status": "ok"}
 

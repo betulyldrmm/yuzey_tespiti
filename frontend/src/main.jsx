@@ -49,8 +49,8 @@ function App() {
   async function stopDetection() {
     setError("");
     try {
-      const response = await postJson("/api/detections/stop");
-      const data = await response.json();
+      const response = await postJson("/api/detections/stop");//backende gönderiyro 
+      const data = await response.json();//backendden gelen cevap oknuyor 
       setStatus(data.status);
       setDetections(data.detections);
     } catch (err) {
